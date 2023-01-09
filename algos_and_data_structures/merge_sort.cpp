@@ -25,13 +25,18 @@ void merge(vector<int> &a, int p, int q, int r) {
     int i = 0;
     int j = 0;
     while (i < n_left && j < n_right) {
-        if (left[i] < right[j]) {
+        if (left[i] <= right[j]) {
             a[p+i+j] = left[i];
             i++;
         }
         else {
             a[p+i+j] = right[j];
+
+            // store inversion count in global var or turn function return to int
+            // inv_count += n_left - i;
+
             j++;
+
         }
     }
 
